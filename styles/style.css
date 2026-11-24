@@ -1,5 +1,288 @@
-/* Основные стили проекта. Это стили для темы, которую вы верстаете первой. */
+@import url('./globals.css');
 
 .page {
-  /* сохраните в разметке и стилях класс page у тега body. Он удобен, чтобы составлять селекторы для разных цветовых тем. */
+  --bg: #000028;
+  --cover: url('../images/cover-image-dark.png');
+  --ink: #f1b2ce;
+  --accent: #ff0070;
+  --heading: #db00ff;
+  --label: #000028;
+  --decor: #ff0070;
+  --title-shadow: #ff0070;
+  --hover: rgb(255 0 112 / 40%);
+  --rec: visible;
+  --space: 10px;
+  margin: 0;
+  color: var(--ink);
+  font: 18px/1.3 'IBM Plex Mono', monospace;
+  background: var(--bg) var(--cover) center / cover fixed no-repeat;
+}
+
+@media (prefers-color-scheme: light) {
+  .page:not(.theme_dark) {
+    --bg: #fff1f7;
+    --cover: url('../images/cover-image-light.png');
+    --ink: #353430;
+    --accent: #ff8dcb;
+    --heading: #ffc2e6;
+    --label: #353430;
+    --decor: #353430;
+    --title-shadow: #ff0070;
+    --hover: rgb(50 49 45 / 40%);
+    --rec: hidden;
+  }
+}
+
+.page.theme_light {
+  --bg: #fff1f7;
+  --cover: url('../images/cover-image-light.png');
+  --ink: #353430;
+  --accent: #ff8dcb;
+  --heading: #ffc2e6;
+  --label: #353430;
+  --decor: #353430;
+  --title-shadow: #ff0070;
+  --hover: rgb(50 49 45 / 40%);
+  --rec: hidden;
+}
+
+.decorated-zone {
+  position: relative;
+  min-height: 668px;
+  height: 100vh;
+  padding: var(--space);
+}
+
+.decorated-zone::before,
+.decorated-zone::after {
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  pointer-events: none;
+  content: '';
+}
+
+.decorated-zone::before {
+  inset: var(--space) var(--space) auto auto;
+  border-block-start: 1px solid var(--decor);
+  border-inline-end: 1px solid var(--decor);
+}
+
+.decorated-zone::after {
+  inset: auto auto var(--space) var(--space);
+  border-block-end: 1px solid var(--decor);
+  border-inline-start: 1px solid var(--decor);
+}
+
+.header {
+  display: grid;
+  grid-template-rows: 1fr auto 1fr;
+  align-items: center;
+}
+
+.header__rec {
+  position: absolute;
+  inset: var(--space) calc(var(--space) + 8px) auto auto;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--decor);
+  visibility: var(--rec);
+}
+
+.header__rec::after {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: currentColor;
+  box-shadow: 0 0 4px 2px currentColor;
+  content: '';
+}
+
+.header__theme-menu {
+  justify-self: end;
+}
+
+.header__theme-menu-list {
+  display: grid;
+  gap: 10px;
+}
+
+.header__theme-menu-button {
+  border: 1px solid transparent;
+  padding: 0 12px;
+  color: var(--decor);
+  font: inherit;
+  line-height: 1.15;
+  text-transform: lowercase;
+  background: transparent;
+  cursor: pointer;
+}
+
+.header__theme-menu-button:hover {
+  border-color: var(--hover);
+}
+
+.header__theme-menu-button_active {
+  border-color: currentColor;
+  pointer-events: none;
+}
+
+.header__theme-menu-button:focus-visible {
+  outline: none;
+  border-block-end-color: currentColor;
+}
+
+.header__title,
+.footer__title {
+  color: var(--heading);
+  font-size: clamp(116px, 7.53rem + 4.34vw, 157px);
+  font-weight: 700;
+  line-height: .825;
+  text-shadow: 4px 4px var(--title-shadow);
+}
+
+.header__description {
+  justify-self: end;
+  font-weight: 700;
+}
+
+.title-decor {
+  color: var(--label);
+  background: var(--accent);
+}
+
+.content {
+  display: grid;
+  gap: 50px;
+  padding: 40px var(--space);
+}
+
+.section,
+.section__cards {
+  display: grid;
+  gap: 20px;
+  align-content: start;
+}
+
+.section :is(h2, h3, h4) {
+  font-size: inherit;
+  line-height: inherit;
+}
+
+.section__title {
+  color: var(--decor);
+}
+
+.card {
+  display: grid;
+  align-content: start;
+  gap: 10px;
+}
+
+.card h4 {
+  font-weight: 400;
+}
+
+.card a {
+  color: inherit;
+  text-decoration: none;
+  text-shadow: 2px 2px var(--accent);
+}
+
+.card a:hover {
+  text-decoration: underline;
+}
+
+.card a:focus-visible {
+  outline: 1px solid currentColor;
+}
+
+.section_gallery,
+.gallery {
+  gap: var(--space);
+}
+
+.gallery {
+  display: grid;
+}
+
+.gallery img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.footer {
+  display: grid;
+  place-items: center;
+}
+
+.footer__title {
+  text-shadow: 2px 2px var(--title-shadow);
+}
+
+@media (min-width: 768px) {
+  .page {
+    --space: 20px;
+  }
+
+  .decorated-zone {
+    min-height: 768px;
+  }
+
+  .header__title {
+    margin-inline-start: calc(-1 * var(--space));
+  }
+
+  .header__description {
+    width: 50%;
+  }
+
+  .content {
+    gap: 80px;
+    padding-block: 60px;
+  }
+
+  .section_split {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .section_split .section__cards {
+    grid-column: span 2;
+  }
+
+  .section_factors .section__title {
+    width: calc((100% - 40px) / 3);
+  }
+
+  .gallery {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .gallery__sunset,
+  .gallery__street {
+    grid-column: span 2;
+  }
+
+  .gallery__ice-cream,
+  .gallery__tape {
+    grid-row: span 2;
+  }
+}
+
+@media (min-width: 1024px) {
+  .header__theme-menu {
+    align-self: start;
+    justify-self: center;
+  }
+
+  .header__theme-menu-list {
+    grid-auto-flow: column;
+  }
+
+  .section_factors .section__cards {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
 }
