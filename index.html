@@ -5,10 +5,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Сложно сосредоточиться</title>
-    <script src="./scripts/script.js"></script>
+    <meta name="color-scheme" content="dark light" />
+    <link rel="icon" href="./images/favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="./fonts/fonts.css" />
+    <link rel="stylesheet" href="./styles/style.css" />
+    <script src="./scripts/script.js" defer></script>
   </head>
   <body class="page">
     <header class="header decorated-zone">
+      <span class="header__rec" aria-hidden="true">REC</span>
       <nav class="header__theme-menu">
         <ul class="header__theme-menu-list">
           <li class="header__theme-menu-item">
@@ -35,6 +40,53 @@
           </li>
         </ul>
       </nav>
+      <h1 class="header__title">no focus</h1>
+      <p class="header__description title-decor">Что делать, когда не можешь делать ничего<br />Или почему нам так сложно сконцентрироваться, особенно когда очень надо</p>
     </header>
+    <main class="content">
+      <section class="section section_split">
+        <h2 class="section__title">Почему сосредоточиться так сложно</h2>
+        <div class="section__cards">
+          <article class="card">
+            <h3 class="title-decor">Многозадачность</h3>
+            <p>Особенно сложно сосредоточиться, когда задач много и все они важные. Где же легендарная многозадачность, когда она так нужна вам (и всем нанимающим менеджерам этого мира)? А дело в том, что её просто не существует. Исследователи <a href="https://dana.org/article/multicosts-of-multitasking/">выяснили</a>, что мозгу тяжело концентрироваться даже на двух делах одновременно.</p>
+          </article>
+          <article class="card">
+            <h3 class="title-decor">Дофамин</h3>
+            <p>С гормонами стресса всё понятно, но дальше — ещё интереснее. В невозможности сосредоточиться замешана и полная противоположность стрессу — дофамин. Мы отвлекаемся от важной задачи на что-то более приятное, чтобы получить быструю награду.</p>
+          </article>
+        </div>
+      </section>
+      <section class="section section_factors">
+        <h2 class="section__title">Что снижает концентрацию внимания?</h2>
+        <div class="section__cards">
+          <article class="card"><h3 class="title-decor">Многозадачность</h3><p>Как концентрация может снижаться из-за… концентрации? Любая стрессовая ситуация заставляет мозг переключаться между задачами. Чем чаще это происходит, тем сложнее удерживать внимание.</p></article>
+          <article class="card"><h3 class="title-decor">Еда</h3><p>Быстрые углеводы дают прилив энергии, за которым может последовать спад. Регулярное питание помогает поддерживать силы для работы.</p></article>
+          <article class="card"><h3 class="title-decor">Гаджеты</h3><p>Телефон под рукой постоянно предлагает что-нибудь интересное. Уведомления и короткие видео отвлекают даже тогда, когда для работы достаточно нескольких минут тишины.</p></article>
+        </div>
+      </section>
+      <section class="section section_split">
+        <h2 class="section__title">Как концентрироваться лучше, чем золотая рыбка (то есть дольше трёх секунд)</h2>
+        <div class="section__cards">
+          <h3 class="title-decor">5 простых (на самом деле не очень) советов</h3>
+          <article class="card"><h4 class="title-decor">Представьте небо и облака</h4><p>Закройте глаза и представьте голубое небо. Пусть мысли проплывают как облака. Когда заметите, что отвлеклись, спокойно вернитесь к тому, что делали.</p></article>
+          <article class="card"><h4 class="title-decor">Включите музыку</h4><p>Попробуйте музыку без слов или привычные фоновые звуки. Если они мешают следить за мыслью, сделайте тише или выключите их.</p></article>
+          <article class="card"><h4 class="title-decor">Прогуляйтесь</h4><p>Небольшая прогулка помогает сделать паузу. Встаньте из-за компьютера, пройдитесь и вернитесь к одной конкретной задаче.</p></article>
+          <article class="card"><h4 class="title-decor">Хорошо ешьте</h4><p>Планируйте перерывы на еду и держите рядом воду. Голод и усталость мешают сосредоточиться даже на знакомой работе.</p></article>
+          <article class="card"><h4 class="title-decor">Читайте</h4><p>Выберите текст, который вам интересен, и отложите телефон. Начните с нескольких страниц и постепенно увеличивайте время чтения.</p></article>
+        </div>
+      </section>
+      <section class="section section_gallery">
+        <h2 class="title-decor">А можно в картинках?</h2>
+        <div class="gallery">
+          <img class="gallery__sunset" src="./images/sunset.png" alt="Закат над горами" loading="lazy" />
+          <img class="gallery__ice-cream" src="./images/ice-cream.png" alt="Мороженое" loading="lazy" />
+          <img class="gallery__tape" src="./images/tape.png" alt="Кассета" loading="lazy" />
+          <img class="gallery__books" src="./images/books.png" alt="Стопка книг" loading="lazy" />
+          <img class="gallery__street" src="./images/street.png" alt="Городская улица" loading="lazy" />
+        </div>
+      </section>
+    </main>
+    <footer class="footer decorated-zone"><p class="footer__title">focus</p></footer>
   </body>
 </html>
